@@ -6,8 +6,10 @@ if [[ -z $1 ]]
 then
   echo -e "Please provide an element as an argument."
 else
+  #add check if integer
+  
   #if atomic_number
-  ATOMIC_NUMBER=$($PSQL "select atomic_number from elements where atomic_number=$1")
+  ATOMIC_NUMBER=$($PSQL "select atomic_number from elements where atomic_number='$1'")
   if [[ -z $ATOMIC_NUMBER ]]
   then
     #check if it's a symbol
